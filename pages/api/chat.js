@@ -1,18 +1,17 @@
 export default async function (req, res) {
-
-  const response = await fetch(process.env.LCC_ENDPOINT_URL, {
+  const response = await fetch(`${process.env.AI_SEARCH_BACKEND_URL}/search`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-Api-Key": process.env.LCC_TOKEN
     },
     body: JSON.stringify({
       question: req.body.question,
-      history: req.body.history
+      url: req.body.url,
     }),
   });
 
-    const data = await response.json();
+  const data = await response.json();
+  console.log("data", data);
 
-    res.status(200).json({ result: data })
+  res.status(200).json(data);
 }
