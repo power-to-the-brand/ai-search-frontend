@@ -7,6 +7,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Home() {
   const [urlInput, setUrlInput] = useState("");
+
   const [userInput, setUserInput] = useState("");
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
